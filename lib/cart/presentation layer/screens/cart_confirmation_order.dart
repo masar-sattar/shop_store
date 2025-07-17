@@ -6,7 +6,7 @@ import 'package:shop_store/cart/presentation%20layer/screens/done_order.dart';
 import 'package:shop_store/cart/widget/payment_selector.dart';
 import 'package:shop_store/core/utilities/app_colors.dart';
 import 'package:shop_store/profile/presntation%20layer/widgets/custom_profile_screen.dart';
-import 'package:shop_store/user/presntation/screens/auth/location_register.dart';
+import 'package:shop_store/auth/location_register.dart';
 import 'package:shop_store/user/presntation/widgets/custom_widget.dart';
 
 class CartConfirmationOrder extends StatefulWidget {

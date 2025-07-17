@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_store/core/utilities/app_colors.dart';
 import 'package:shop_store/driver/presentaion/screens/selector_login_driver.dart';
-import 'package:shop_store/user/presntation/screens/auth/location_register.dart';
+import 'package:shop_store/auth/location_register.dart';
 import 'package:shop_store/user/presntation/widgets/custom_widget.dart';
 
 class RegisterScreen extends StatefulWidget {

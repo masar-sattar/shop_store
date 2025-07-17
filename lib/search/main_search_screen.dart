@@ -214,7 +214,7 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      "منتجات",
+                      "items".tr(),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: selectedTabIndex == 0

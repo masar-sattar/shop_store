@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_store/core/utilities/app_colors.dart';
-import 'package:shop_store/user/presntation/screens/auth/login_screen.dart';
+import 'package:shop_store/auth/login_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class ForgertPassword extends StatelessWidget {

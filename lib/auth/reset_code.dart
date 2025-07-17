@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shop_store/core/utilities/app_colors.dart';
-import 'package:shop_store/user/presntation/screens/auth/forget_password.dart';
+import 'package:shop_store/auth/forget_password.dart';
 
 class ResetCode extends StatefulWidget {
   const ResetCode({super.key});
