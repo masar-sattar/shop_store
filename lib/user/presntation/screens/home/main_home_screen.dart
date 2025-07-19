@@ -139,7 +139,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                   ),
                 ),
                 Text(
-                  "show all".tr(),
+                  "show_all".tr(),
                   style: const TextStyle(
                     color: AppColors.mainColor,
                     decoration: TextDecoration.underline,
@@ -153,48 +153,18 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           const SizedBox(
             height: 10,
           ),
-          // const SingleChildScrollView(
-          //   scrollDirection: Axis.horizontal,
-          //   child: Row(
-          //     children: [
-          //       ProductCard(
-          //         image: "assets/images/mascara.png",
-          //         name: "انفنتى مسكارا تقبيت الحواجب",
-          //         price: 2000,
-          //         oldPrice: 2500,
-          //         brandImage: "assets/images/mr.png",
-          //         brandName: "mr beauty",
-          //       ),
-          //       ProductCard(
-          //         image: "assets/images/mascara.png",
-          //         name: "انفنتى مسكارا تقبيت الحواجب",
-          //         price: 2000,
-          //         oldPrice: 2500,
-          //         brandImage: "assets/images/mr.png",
-          //         brandName: "mr beauty",
-          //       ),
-          //       ProductCard(
-          //         image: "assets/images/mascara.png",
-          //         name: "انفنتى مسكارا تقبيت الحواجب",
-          //         price: 2000,
-          //         oldPrice: 2500,
-          //         brandImage: "assets/images/mr.png",
-          //         brandName: "mr beauty",
-          //       ),
-          //     ],
-          //   ),
-          // ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
                 GestureDetector(
+                  behavior: HitTestBehavior.translucent,
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const ItemDetails()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ItemDetails()),
+                    );
                   },
                   child: const ProductCard(
                     image: "assets/images/mascara.png",
@@ -242,7 +212,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               ],
             ),
           ),
-
           const SizedBox(
             height: 16,
           ),

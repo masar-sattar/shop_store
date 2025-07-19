@@ -160,12 +160,10 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 25,
         ),
       ),
-
       body: IndexedStack(
         index: currentIndex,
         children: pages,
       ),
-
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Transform.translate(
         offset: const Offset(0, -10),
@@ -190,8 +188,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-
-      /// ✅ الشريط السفلي
       bottomNavigationBar: NavigatorButtonScreen(
         currentIndex: currentIndex,
         onTabChanged: (index) {
