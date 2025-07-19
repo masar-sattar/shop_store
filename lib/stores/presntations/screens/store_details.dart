@@ -27,8 +27,6 @@ class _StoreDetailsState extends State<StoreDetails> {
       "name": "انفنتى مسكارا تثبيت الحواجب",
       "price": 2000.0,
       "oldPrice": 2500.0,
-      "brandImage": "assets/images/mr.png",
-      "brandName": "mr beauty",
     },
     {
       "image": "assets/images/mascara.png",
@@ -136,11 +134,11 @@ class _StoreDetailsState extends State<StoreDetails> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
+      body: Padding(
+        padding: const EdgeInsets.all(6.0),
+        child: Column(
+          children: [
+            Container(
               decoration: BoxDecoration(
                 color: AppColors.containColor,
                 borderRadius: BorderRadius.circular(12.0),
@@ -187,7 +185,7 @@ class _StoreDetailsState extends State<StoreDetails> {
                   ),
                   const SizedBox(height: 8.0),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 9.0),
                     height: 40.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -231,53 +229,53 @@ class _StoreDetailsState extends State<StoreDetails> {
                 ],
               ),
             ),
-          ),
-          const SizedBox(height: 10.0),
-          SizedBox(
-            height: 50.0,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: categories.length,
-              itemBuilder: (context, index) {
-                return categoryItem(
-                  title: categories[index],
-                  isSelected: index == selectedIndex,
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = index;
-                    });
-                  },
-                );
-              },
-            ),
-          ),
-          const SizedBox(height: 10.0),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: GridView.builder(
-                itemCount: products.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10.0,
-                  mainAxisSpacing: 10.0,
-                  childAspectRatio: 0.65,
-                ),
+            const SizedBox(height: 12.0),
+            SizedBox(
+              height: 50.0,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
                 itemBuilder: (context, index) {
-                  final product = products[index];
-                  return ProductCard(
-                    image: product['image'],
-                    name: product['name'],
-                    price: product['price'],
-                    oldPrice: product['oldPrice'],
-                    brandImage: product['brandImage'],
-                    brandName: product['brandName'],
+                  return categoryItem(
+                    title: categories[index],
+                    isSelected: index == selectedIndex,
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = index;
+                      });
+                    },
                   );
                 },
               ),
             ),
-          ),
-        ],
+            const SizedBox(height: 10.0),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: GridView.builder(
+                  itemCount: products.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 9.0,
+                    mainAxisSpacing: 10.0,
+                    childAspectRatio: 0.65,
+                  ),
+                  itemBuilder: (context, index) {
+                    final product = products[index];
+                    return ProductCard(
+                      image: product['image'],
+                      name: product['name'],
+                      price: product['price'],
+                      oldPrice: product['oldPrice'],
+                      brandImage: product['brandImage'],
+                      brandName: product['brandName'],
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

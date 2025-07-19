@@ -32,296 +32,300 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 200,
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: images.length,
-              onPageChanged: (index) {
-                setState(() {
-                  currentIndex = index;
-                });
-              },
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.asset(
-                      images[index],
-                      fit: BoxFit.cover,
-                      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 200,
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: images.length,
+                onPageChanged: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        images[index],
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(images.length, (index) {
+                final isActive = currentIndex == index;
+                return GestureDetector(
+                  onTap: () {
+                    _pageController.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    width: isActive ? 12 : 8,
+                    height: isActive ? 12 : 8,
+                    decoration: BoxDecoration(
+                      color: isActive ? Colors.black : Colors.grey.shade300,
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(5),
                     ),
                   ),
                 );
-              },
+              }),
             ),
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(images.length, (index) {
-              final isActive = currentIndex == index;
-              return GestureDetector(
-                onTap: () {
-                  _pageController.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeInOut,
-                  );
-                },
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  width: isActive ? 12 : 8,
-                  height: isActive ? 12 : 8,
-                  decoration: BoxDecoration(
-                    color: isActive ? Colors.black : Colors.grey.shade300,
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(left: 320),
+              child: Text(
+                "category".tr(),
+                style: const TextStyle(
+                  fontSize: 20,
                 ),
-              );
-            }),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 320),
-            child: Text(
-              "category".tr(),
-              style: const TextStyle(
-                fontSize: 20,
               ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const CategoryScreen()),
-              );
-            },
-            child: const CategoryScroller(
-              names: [
-                "جمال وعناية",
-                "جمال وعناية",
-                "جمال وعناية",
-                "جمال وعناية",
-                "جمال وعناية",
-                "جمال وعناية"
-              ],
+            const SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CategoryScreen()),
+                );
+              },
+              child: const CategoryScroller(
+                names: [
+                  "جمال وعناية",
+                  "جمال وعناية",
+                  "جمال وعناية",
+                  "جمال وعناية",
+                  "جمال وعناية",
+                  "جمال وعناية"
+                ],
+                images: [
+                  "assets/images/category.png",
+                  "assets/images/category.png",
+                  "assets/images/category.png",
+                  "assets/images/category.png",
+                  "assets/images/category.png",
+                  "assets/images/category.png"
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "discaounts".tr(),
+                    style: const TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  Text(
+                    "show_all".tr(),
+                    style: const TextStyle(
+                      color: AppColors.mainColor,
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.mainColor,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ItemDetails()),
+                      );
+                    },
+                    child: const ProductCard(
+                      image: "assets/images/mascara.png",
+                      name: "انفنتى مسكارا تقبيت الحواجب",
+                      price: 2000,
+                      oldPrice: 2500,
+                      brandImage: "assets/images/mr.png",
+                      brandName: "mr beauty",
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ItemDetails()),
+                      );
+                    },
+                    child: const ProductCard(
+                      image: "assets/images/mascara.png",
+                      name: "انفنتى مسكارا تقبيت الحواجب",
+                      price: 2000,
+                      oldPrice: 2500,
+                      brandImage: "assets/images/mr.png",
+                      brandName: "mr beauty",
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ItemDetails()),
+                      );
+                    },
+                    child: const ProductCard(
+                      image: "assets/images/mascara.png",
+                      name: "انفنتى مسكارا تقبيت الحواجب",
+                      price: 2000,
+                      oldPrice: 2500,
+                      brandImage: "assets/images/mr.png",
+                      brandName: "mr beauty",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "favorit_stores".tr(),
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                  Text(
+                    "show all".tr(),
+                    style: const TextStyle(
+                      color: AppColors.mainColor,
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.mainColor,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const FavoriteStores(
               images: [
-                "assets/images/category.png",
-                "assets/images/category.png",
-                "assets/images/category.png",
-                "assets/images/category.png",
-                "assets/images/category.png",
-                "assets/images/category.png"
+                "assets/images/hilal.png",
+                "assets/images/hilal.png",
+                "assets/images/hilal.png",
+                "assets/images/hilal.png",
+                "assets/images/hilal.png",
+                "assets/images/hilal.png"
               ],
             ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "discaounts".tr(),
-                  style: const TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-                Text(
-                  "show_all".tr(),
-                  style: const TextStyle(
-                    color: AppColors.mainColor,
-                    decoration: TextDecoration.underline,
-                    decorationColor: AppColors.mainColor,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+            const SizedBox(
+              height: 16,
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ItemDetails()),
-                    );
-                  },
-                  child: const ProductCard(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Top_Selling_Products".tr(),
+                    style: const TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  Text(
+                    "show all".tr(),
+                    style: const TextStyle(
+                      color: AppColors.mainColor,
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.mainColor,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ProductCard(
                     image: "assets/images/mascara.png",
                     name: "انفنتى مسكارا تقبيت الحواجب",
                     price: 2000,
-                    oldPrice: 2500,
                     brandImage: "assets/images/mr.png",
                     brandName: "mr beauty",
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ItemDetails()),
-                    );
-                  },
-                  child: const ProductCard(
+                  ProductCard(
                     image: "assets/images/mascara.png",
                     name: "انفنتى مسكارا تقبيت الحواجب",
                     price: 2000,
-                    oldPrice: 2500,
                     brandImage: "assets/images/mr.png",
                     brandName: "mr beauty",
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ItemDetails()),
-                    );
-                  },
-                  child: const ProductCard(
+                  ProductCard(
                     image: "assets/images/mascara.png",
                     name: "انفنتى مسكارا تقبيت الحواجب",
                     price: 2000,
-                    oldPrice: 2500,
                     brandImage: "assets/images/mr.png",
                     brandName: "mr beauty",
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "favorit_stores".tr(),
-                  style: const TextStyle(fontSize: 18),
-                ),
-                Text(
-                  "show all".tr(),
-                  style: const TextStyle(
-                    color: AppColors.mainColor,
-                    decoration: TextDecoration.underline,
-                    decorationColor: AppColors.mainColor,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+            const SizedBox(
+              height: 10,
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const FavoriteStores(
-            images: [
-              "assets/images/hilal.png",
-              "assets/images/hilal.png",
-              "assets/images/hilal.png",
-              "assets/images/hilal.png",
-              "assets/images/hilal.png",
-              "assets/images/hilal.png"
-            ],
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Top_Selling_Products".tr(),
-                  style: const TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-                Text(
-                  "show all".tr(),
-                  style: const TextStyle(
-                    color: AppColors.mainColor,
-                    decoration: TextDecoration.underline,
-                    decorationColor: AppColors.mainColor,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+            Image.asset(
+              "assets/images/middel.png",
+              width: 343,
+              height: 150,
             ),
-          ),
-          const SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                ProductCard(
-                  image: "assets/images/mascara.png",
-                  name: "انفنتى مسكارا تقبيت الحواجب",
-                  price: 2000,
-                  brandImage: "assets/images/mr.png",
-                  brandName: "mr beauty",
-                ),
-                ProductCard(
-                  image: "assets/images/mascara.png",
-                  name: "انفنتى مسكارا تقبيت الحواجب",
-                  price: 2000,
-                  brandImage: "assets/images/mr.png",
-                  brandName: "mr beauty",
-                ),
-                ProductCard(
-                  image: "assets/images/mascara.png",
-                  name: "انفنتى مسكارا تقبيت الحواجب",
-                  price: 2000,
-                  brandImage: "assets/images/mr.png",
-                  brandName: "mr beauty",
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset("assets/images/left image.png"),
+                  Image.asset("assets/images/right image.png")
+                ],
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Image.asset(
-            "assets/images/middel.png",
-            width: 343,
-            height: 150,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset("assets/images/left image.png"),
-                Image.asset("assets/images/right image.png")
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
