@@ -74,6 +74,7 @@ flutter:
     - assets/images/navigator_images/
     - assets/images/profile/
     - assets/translations/
+    - assets/images/splash_screen.jpg
     
     
     
@@ -104,8 +105,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
-flutter_native_splash:
-  color: "#ffffff"
-  image: assets/images/splash_screen.jpg
-  android: true
-  ios: true
+# flutter_native_splash:
+#   color: "#F1B722"
+#   image: assets/images/splash_screen.jpg
+#   android: true
+#   ios: true
+#   fullscreen: true
