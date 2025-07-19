@@ -29,10 +29,10 @@ class MainStoreScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => CustomStoreContainer()),
+                        builder: (context) => const CustomStoreContainer()),
                   );
                 },
-                child: CustomStoreContainer())
+                child: const CustomStoreContainer())
           ],
         ),
       ),

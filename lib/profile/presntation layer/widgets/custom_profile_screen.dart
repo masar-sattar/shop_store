@@ -128,9 +128,12 @@ class CustomProfileScreen extends StatelessWidget {
               ),
             ),
             if (showArrow)
-              IconButton(
-                onPressed: onTap,
-                icon: const Icon(Icons.arrow_forward_ios),
+              GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                child: IconButton(
+                  onPressed: onTap,
+                  icon: const Icon(Icons.arrow_forward_ios),
+                ),
               ),
           ],
         ),

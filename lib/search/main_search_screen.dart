@@ -258,7 +258,7 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
           ),
         ),
         selectedTabIndex == 0
-            ? Column(
+            ? const Column(
                 children: [
                   CustomStoreContainer(),
                   CustomStoreContainer(),
@@ -266,10 +266,11 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
                 ],
               )
             : Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Text(
                   "no_matching_products_found".tr(),
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
       ]),

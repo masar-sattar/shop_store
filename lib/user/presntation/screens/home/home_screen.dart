@@ -131,6 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
     currentIndex = widget.initialIndex;
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

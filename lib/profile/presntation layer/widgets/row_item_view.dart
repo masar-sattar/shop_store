@@ -34,7 +34,7 @@ class RowItemView extends StatelessWidget {
                   "انفنتى مسكارا تقبيت الحواجب",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
               Text(

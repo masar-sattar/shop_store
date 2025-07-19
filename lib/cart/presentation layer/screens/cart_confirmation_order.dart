@@ -25,7 +25,7 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "اكمال الطلب #87985679458",
           style: TextStyle(color: AppColors.fontColor),
         ),
@@ -86,7 +86,7 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                               colorContainer: Colors.white,
                               height: 50,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -96,7 +96,7 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                                 maxLines: 5,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                           ],
@@ -107,7 +107,7 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -116,7 +116,7 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                 alignment: Alignment.centerRight,
                 child: Text(
                   "recived_info".tr(),
-                  style: TextStyle(fontSize: 18),
+                  style: const TextStyle(fontSize: 18),
                 ),
               ),
             ),
@@ -154,19 +154,19 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => LocationRegister()),
+                            builder: (context) => const LocationRegister()),
                       );
                     },
                   ),
                   Text(
                     "If no location is selected, your default location saved at login will be used."
                         .tr(),
-                    style: TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 12),
                   ),
                   const SizedBox(height: 20),
                   Text(
                     "pay".tr(),
-                    style: TextStyle(fontSize: 25),
+                    style: const TextStyle(fontSize: 25),
                   ),
                   const SizedBox(height: 20),
                   PaymentSelector(
@@ -190,7 +190,7 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                         LengthLimitingTextInputFormatter(16),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
                         Padding(
@@ -198,11 +198,11 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Text(
                                   "CVC",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontSize: 18, color: AppColors.fontColor),
                                 ),
                               ),
@@ -219,7 +219,7 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                             ],
                           ),
                         ),
-                        SizedBox(width: 20),
+                        const SizedBox(width: 20),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
@@ -233,7 +233,7 @@ class _CartConfirmationOrderState extends State<CartConfirmationOrder> {
                                       fontSize: 18, color: AppColors.fontColor),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                   width: 166,
                                   child: CustomWidget(hintText: "MM/YY")),
                             ],

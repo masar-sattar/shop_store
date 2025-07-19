@@ -12,7 +12,7 @@ class NotificationScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text(
           "notification".tr(),
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
           ),
         ),
@@ -21,7 +21,7 @@ class NotificationScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               "read all".tr(),
-              style: TextStyle(color: AppColors.mainColor, fontSize: 15),
+              style: const TextStyle(color: AppColors.mainColor, fontSize: 15),
             ),
           )
         ],
@@ -67,7 +67,7 @@ class NotificationScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Column(
+                const Column(
                   children: [Text("أمس 8:22 م")],
                 )
               ],

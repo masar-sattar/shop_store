@@ -24,7 +24,7 @@ class LocationRegister extends StatelessWidget {
               Center(
                 child: Text(
                   "Select Delivery Address".tr(),
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                 ),
               ),
               Padding(
@@ -32,7 +32,8 @@ class LocationRegister extends StatelessWidget {
                 child: Text(
                   "Choose the location accurately to make it easier to reach you. This address will be used for future deliveries."
                       .tr(),
-                  style: TextStyle(color: AppColors.fontColor, fontSize: 15),
+                  style:
+                      const TextStyle(color: AppColors.fontColor, fontSize: 15),
                 ),
               ),
               const SizedBox(height: 10),

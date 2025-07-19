@@ -1,17 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:shop_store/auth/set_new_password.dart';
 import 'package:shop_store/core/utilities/app_colors.dart';
 import 'package:shop_store/auth/forget_password.dart';
 
-class ResetCode extends StatefulWidget {
-  const ResetCode({super.key});
+class OtpCode extends StatefulWidget {
+  const OtpCode({super.key});
 
   @override
-  State<ResetCode> createState() => _ResetCodeState();
+  State<OtpCode> createState() => _OtpCodeState();
 }
 
-class _ResetCodeState extends State<ResetCode> {
+class _OtpCodeState extends State<OtpCode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +87,13 @@ class _ResetCodeState extends State<ResetCode> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SetNewPassword()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         backgroundColor: AppColors.mainColor,
@@ -94,7 +101,7 @@ class _ResetCodeState extends State<ResetCode> {
                       ),
                       child: Text(
                         "verfication".tr(),
-                        style: const TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                   ),

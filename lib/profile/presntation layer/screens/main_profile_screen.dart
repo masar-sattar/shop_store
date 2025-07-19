@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_store/auth/login_screen.dart';
 
 import 'package:shop_store/core/utilities/app_colors.dart';
 import 'package:shop_store/profile/presntation%20layer/screens/archive_order_screen.dart';
@@ -70,7 +71,7 @@ class MainProfileScreen extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ContactUsScreen(),
+                builder: (context) => const LoginScreen(),
               ),
             );
           },

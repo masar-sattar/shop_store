@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:shop_store/auth/login_screen.dart';
 import 'package:shop_store/core/utilities/theme.dart';
-
-// import 'package:shop_store/user/presntation/screens/auth/location_register.dart';
-// import 'package:shop_store/profile/presntation%20layer/screens/main_profile_screen.dart';
-import 'package:shop_store/user/presntation/screens/home/home_screen.dart';
-
-// import 'package:shop_store/stores/presntations/screens/store_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,8 +35,8 @@ class ShopStore extends StatelessWidget {
       // home: ItemDetails(),
       // home: StoreScreen(),
       // home: LocationRegister(),
-      home: HomeScreen(),
-      // home: RegisterScreen(),
+      home: LoginScreen(),
+
       // home: ContactUsScreen(),
     );
   }

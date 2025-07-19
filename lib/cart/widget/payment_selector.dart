@@ -69,12 +69,12 @@ class _PaymentSelectorState extends State<PaymentSelector> {
                 height: 18,
                 width: 18,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               Text(
                 label,
-                style: TextStyle(color: Colors.black87, fontSize: 18),
+                style: const TextStyle(color: Colors.black87, fontSize: 18),
               ),
             ],
           ),

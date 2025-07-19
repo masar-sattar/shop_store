@@ -32,7 +32,7 @@ class _StoreScreenState extends State<StoreScreen> {
           height: 25,
         ),
       ),
-      body: MainStoreScreen(),
+      body: const MainStoreScreen(),
     );
   }
 }

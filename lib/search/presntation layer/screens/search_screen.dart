@@ -63,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen> {
           height: 25,
         ),
       ),
-      body: MainSearchScreen(),
+      body: const MainSearchScreen(),
     );
   }
 }

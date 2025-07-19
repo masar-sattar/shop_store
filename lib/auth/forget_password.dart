@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_store/auth/otp_code.dart';
 import 'package:shop_store/core/utilities/app_colors.dart';
 import 'package:shop_store/auth/login_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -61,7 +62,13 @@ class ForgertPassword extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const OtpCode()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         backgroundColor: AppColors.mainColor,

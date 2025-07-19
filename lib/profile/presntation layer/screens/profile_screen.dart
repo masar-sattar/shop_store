@@ -32,7 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           height: 25,
         ),
       ),
-      body: MainProfileScreen(),
+      body: const MainProfileScreen(),
     );
   }
 }

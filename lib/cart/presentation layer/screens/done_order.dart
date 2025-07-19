@@ -26,8 +26,10 @@ class DoneOrder extends StatelessWidget {
                     width: 30,
                   ),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()));
                   },
                 ),
               ),
@@ -51,7 +53,7 @@ class DoneOrder extends StatelessWidget {
                           "Order received successfully. If you have any issues, please contact us."
                               .tr(),
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16),
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ),
                     ),
@@ -81,23 +83,23 @@ class DoneOrder extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 35,
                     ),
                     Text(
                       "What is your rating of the store?".tr(),
-                      style: TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: 18),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
-                    Row(
+                    const Row(
                       children: [
-                        const Spacer(
+                        Spacer(
                           flex: 15,
                         ),
-                        const SizedBox(width: 4.0),
-                        const Icon(Icons.star, color: Colors.amber, size: 30.0),
+                        SizedBox(width: 4.0),
+                        Icon(Icons.star, color: Colors.amber, size: 30.0),
                         Icon(Icons.star,
                             color: AppColors.lightboder, size: 30.0),
                         Icon(Icons.star,
@@ -106,12 +108,12 @@ class DoneOrder extends StatelessWidget {
                             color: AppColors.lightboder, size: 30.0),
                         Icon(Icons.star,
                             color: AppColors.lightboder, size: 30.0),
-                        const Spacer(
+                        Spacer(
                           flex: 15,
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 35,
                     ),
                     Align(
@@ -121,7 +123,7 @@ class DoneOrder extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Text(
                             "Please tell us more about your experience.".tr(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold)),
                       ),
                     ),
@@ -130,7 +132,7 @@ class DoneOrder extends StatelessWidget {
                       hintText: "rating details".tr(),
                       maxLines: 6,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     ElevatedButton(
