@@ -309,18 +309,28 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
             const SizedBox(
               height: 10,
             ),
-            Image.asset(
-              "assets/images/middel.png",
-              width: 343,
-              height: 150,
-            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/middel.png",
+                width: double.infinity,
+                height: 150,
+                fit: BoxFit.fill,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("assets/images/left image.png"),
-                  Image.asset("assets/images/right image.png")
+                  Image.asset(
+                    "assets/images/left image.png",
+                    fit: BoxFit.fill,
+                  ),
+                  Image.asset(
+                    "assets/images/right image.png",
+                    fit: BoxFit.fill,
+                  )
                 ],
               ),
             ),

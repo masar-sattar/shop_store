@@ -83,5 +83,8 @@
     "move_to_map": "الانتقال للخريطة",
     "no_matching_products_found": "لا يوجد منتاجات مناسبة مع كلمات البحث",
     "show": "اظهار",
-    "hide": "اخفاء"
+    "hide": "اخفاء",
+    "add_another_address": "إضافة عنوان آخر",
+    "current_location": "العنوان الحالي",
+    "social_media": "وسائل التواصل"
 }

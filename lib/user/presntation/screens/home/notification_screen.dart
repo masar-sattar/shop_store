@@ -20,7 +20,7 @@ class NotificationScreen extends StatelessWidget {
               // TODO: تنفيذ وظيفة "قراءة الكل"
             },
             child: Text(
-              "read all".tr(),
+              "read_all".tr(),
               style: const TextStyle(color: AppColors.mainColor, fontSize: 15),
             ),
           ),
@@ -44,7 +44,7 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              height: 80,
+              height: 95,
               width: double.infinity,
               padding: const EdgeInsets.all(8),
               child: Row(

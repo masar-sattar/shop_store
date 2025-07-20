@@ -41,6 +41,10 @@ class _ItemDetailsState extends State<ItemDetails> {
 
   List<Map<String, dynamic>> colorOptions = [
     {'name': 'أسود', 'color': Colors.black},
+    {'name': 'أسود', 'color': Colors.black},
+    {'name': 'أسود', 'color': Colors.black},
+    {'name': 'أسود', 'color': Colors.black},
+    {'name': 'أسود', 'color': Colors.black},
     {'name': 'فضي', 'color': const Color(0xFFD3BC82)},
   ];
 
@@ -71,7 +75,7 @@ class _ItemDetailsState extends State<ItemDetails> {
         ],
         title: Title(
           color: Colors.white,
-          child: Text("item name".tr()),
+          child: Text("item_name".tr()),
         ),
       ),
       body: Padding(
@@ -365,13 +369,13 @@ class _ItemDetailsState extends State<ItemDetails> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "similer items".tr(),
+                      "similer_items".tr(),
                       style: const TextStyle(
                         fontSize: 18,
                       ),
                     ),
                     Text(
-                      "show all".tr(),
+                      "show_all".tr(),
                       style: const TextStyle(
                         color: AppColors.mainColor,
                         decoration: TextDecoration.underline,

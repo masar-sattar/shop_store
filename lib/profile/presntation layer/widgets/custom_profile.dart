@@ -60,7 +60,7 @@ class CustomProfileScreen extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 9.0, horizontal: 11.0),
+                    const EdgeInsets.symmetric(vertical: 0.0, horizontal: 0.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
