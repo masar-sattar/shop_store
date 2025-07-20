@@ -64,8 +64,8 @@ class MainProfileScreen extends StatelessWidget {
             },
             colorContainer: AppColors.containColor),
         CustomProfileScreen(
-          lableName: "log out".tr(),
-          fontColor: const Color.fromARGB(255, 209, 28, 15),
+          lableName: "log_out".tr(),
+          fontColor: Colors.red,
           imagePath: "assets/images/profile/logout.svg",
           onTap: () {
             Navigator.push(

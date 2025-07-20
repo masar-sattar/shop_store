@@ -147,7 +147,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                       color: AppColors.mainColor,
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.mainColor,
-                      fontSize: 18,
+                      fontSize: 15,
                     ),
                   ),
                 ],
@@ -228,12 +228,12 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                     style: const TextStyle(fontSize: 18),
                   ),
                   Text(
-                    "show all".tr(),
+                    "show_all".tr(),
                     style: const TextStyle(
                       color: AppColors.mainColor,
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.mainColor,
-                      fontSize: 18,
+                      fontSize: 15,
                     ),
                   ),
                 ],
@@ -267,12 +267,12 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                     ),
                   ),
                   Text(
-                    "show all".tr(),
+                    "show_all".tr(),
                     style: const TextStyle(
                       color: AppColors.mainColor,
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.mainColor,
-                      fontSize: 18,
+                      fontSize: 15,
                     ),
                   ),
                 ],

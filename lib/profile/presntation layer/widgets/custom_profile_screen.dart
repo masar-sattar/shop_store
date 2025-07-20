@@ -35,7 +35,13 @@ class CustomProfileScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: height ?? 75,
+        height: height ??
+            (phonNum != null ||
+                    price != null ||
+                    itemsCount != null ||
+                    duration != null
+                ? 90
+                : 75),
         // width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
@@ -46,85 +52,89 @@ class CustomProfileScreen extends StatelessWidget {
             const SizedBox(width: 12),
             SvgPicture.asset(
               imagePath,
-              width: 32,
-              height: 32,
+              width: 40,
+              height: 40,
               color: iconColor,
             ),
-            const SizedBox(width: 15),
+            const SizedBox(width: 10),
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    lableName,
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: fontColor,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 9.0, horizontal: 11.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      lableName,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: fontColor,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        if (phonNum != null) ...[
-                          Text(
-                            phonNum!,
-                            style: const TextStyle(
-                                fontSize: 12, color: Colors.grey),
-                          ),
-                        ],
-                        if (phonNum != null &&
-                            (price != null ||
-                                itemsCount != null ||
-                                duration != null))
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 6),
-                            child:
-                                Text('|', style: TextStyle(color: Colors.grey)),
-                          ),
-                        if (price != null) ...[
-                          Text(
-                            price!,
-                            style: const TextStyle(
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          if (phonNum != null) ...[
+                            Text(
+                              phonNum!,
+                              style: const TextStyle(
+                                  fontSize: 12, color: Colors.grey),
+                            ),
+                          ],
+                          if (phonNum != null &&
+                              (price != null ||
+                                  itemsCount != null ||
+                                  duration != null))
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 6),
+                              child: Text('|',
+                                  style: TextStyle(color: Colors.grey)),
+                            ),
+                          if (price != null) ...[
+                            Text(
+                              price!,
+                              style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                          if (price != null &&
+                              (itemsCount != null || duration != null))
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 6),
+                              child: Text('|',
+                                  style: TextStyle(color: Colors.grey)),
+                            ),
+                          if (itemsCount != null) ...[
+                            Text(
+                              itemsCount!,
+                              style: const TextStyle(
                                 fontSize: 12,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                        if (price != null &&
-                            (itemsCount != null || duration != null))
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 6),
-                            child:
-                                Text('|', style: TextStyle(color: Colors.grey)),
-                          ),
-                        if (itemsCount != null) ...[
-                          Text(
-                            itemsCount!,
-                            style: const TextStyle(
-                              fontSize: 12,
+                              ),
                             ),
-                          ),
-                        ],
-                        if (itemsCount != null && duration != null)
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 6),
-                            child:
-                                Text('|', style: TextStyle(color: Colors.grey)),
-                          ),
-                        if (duration != null) ...[
-                          Text(
-                            duration!,
-                            style: const TextStyle(
-                              fontSize: 12,
+                          ],
+                          if (itemsCount != null && duration != null)
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 6),
+                              child: Text('|',
+                                  style: TextStyle(color: Colors.grey)),
                             ),
-                          ),
+                          if (duration != null) ...[
+                            Text(
+                              duration!,
+                              style: const TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
                         ],
-                      ],
-                    ),
-                  )
-                ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             if (showArrow)

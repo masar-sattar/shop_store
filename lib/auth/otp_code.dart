@@ -113,7 +113,7 @@ class _OtpCodeState extends State<OtpCode> {
                     children: [
                       Text(
                         "didn't_recived_code".tr(),
-                        style: const TextStyle(color: AppColors.ligtgray),
+                        style: const TextStyle(color: AppColors.hintextColor),
                       ),
                       const SizedBox(
                         width: 5,

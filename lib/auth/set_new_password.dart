@@ -1,11 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shop_store/auth/login_screen.dart';
 import 'package:shop_store/core/utilities/app_colors.dart';
 
-class SetNewPassword extends StatelessWidget {
+class SetNewPassword extends StatefulWidget {
   const SetNewPassword({super.key});
 
+  @override
+  State<SetNewPassword> createState() => _SetNewPasswordState();
+}
+
+class _SetNewPasswordState extends State<SetNewPassword> {
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +41,7 @@ class SetNewPassword extends StatelessWidget {
                     child: Text(
                       "reset_new_password".tr(),
                       style: const TextStyle(
+                        color: AppColors.labelColor,
                         fontSize: 28,
                       ),
                     ),
@@ -41,21 +49,85 @@ class SetNewPassword extends StatelessWidget {
                   const SizedBox(height: 25),
                   Text(
                     'password'.tr(),
+                    style: const TextStyle(
+                        fontSize: 20,
+                        // fontWeight: FontWeight.bold,
+                        // fontFamily: 'LANTX',
+                        color: AppColors.labelColor),
                   ),
                   const SizedBox(height: 10),
                   TextFormField(
+                    obscureText: _obscureText,
                     decoration: InputDecoration(
+                      hintText: "*******",
+                      hintStyle: TextStyle(color: AppColors.hintextColor),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset(
+                          'assets/images/circle-lock-02.svg',
+                          width: 20,
+                          height: 20,
+                          color: AppColors.fontColor,
+                        ),
+                      ),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14.0, vertical: 14.0),
+                          child: Text(
+                            _obscureText ? "show".tr() : "hide".tr(),
+                            style: TextStyle(
+                              color: AppColors.mainColor,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
+                    obscureText: _obscureText,
                     decoration: InputDecoration(
-                      hintText: "12345qerr".tr(),
+                      hintText: "12345qerr",
+                      hintStyle: TextStyle(color: AppColors.hintextColor),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset(
+                          'assets/images/circle-lock-02.svg',
+                          width: 20,
+                          height: 20,
+                          color: AppColors.fontColor,
+                        ),
+                      ),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14.0, vertical: 14.0),
+                          child: Text(
+                            _obscureText ? "hide".tr() : "show".tr(),
+                            style: TextStyle(
+                              color: AppColors.mainColor,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),

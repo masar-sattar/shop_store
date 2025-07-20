@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-// import 'package:shop_store/core/utilities/app_colors.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_store/core/utilities/app_colors.dart';
 
 class CustomWidget extends StatelessWidget {
   const CustomWidget({
@@ -15,9 +15,11 @@ class CustomWidget extends StatelessWidget {
     this.title,
     this.svgPath,
     this.onIconTap,
+    this.hintIconPath,
     this.keyboardType,
     this.inputFormatters,
   });
+
   final String? labelField;
   final TextEditingController? controller;
   final Color? colorFont;
@@ -29,48 +31,12 @@ class CustomWidget extends StatelessWidget {
   final VoidCallback? onIconTap;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         if (title != null)
-//           Padding(
-//             padding: const EdgeInsets.only(bottom: 6),
-//             child: Text(
-//               title!,
-//               style: TextStyle(
-//                 color: colorFont ?? Colors.black,
-//                 fontSize: 14,
-//                 fontWeight: FontWeight.bold,
-//               ),
-//             ),
-//           ),
-//         TextFormField(
-//           // validator: validator ??
-//           //     (value) {
-//           //       if (value?.trim().isEmpty ?? true) {
-//           //         return 'This field is required';
-//           //       }
-//           //       return null;
-//           //     },
-//           controller: controller,
-//           maxLines: maxLines,
-//           minLines: maxLines,
-//           decoration: InputDecoration(
-//             labelText: labelField,
-//             hintText: hintText,
-//             border: OutlineInputBorder(
-//               borderRadius: BorderRadius.circular(10),
-//             ),
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }
+  final String? hintIconPath;
+
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title != null)
           Padding(
@@ -90,12 +56,14 @@ class CustomWidget extends StatelessWidget {
           minLines: maxLines,
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
+          validator: validator,
           decoration: InputDecoration(
             labelText: labelField,
-            hintText: hintText,
+            hintText: null,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
+            hintStyle: TextStyle(color: AppColors.hintextColor),
             suffixIcon: svgPath != null
                 ? GestureDetector(
                     onTap: onIconTap,
@@ -109,6 +77,29 @@ class CustomWidget extends StatelessWidget {
                     ),
                   )
                 : null,
+            label: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (hintIconPath != null) ...[
+                  SvgPicture.asset(
+                    hintIconPath!,
+                    width: 20,
+                    height: 20,
+                    color: AppColors.hintextColor,
+                  ),
+                  const SizedBox(width: 6),
+                ],
+                Flexible(
+                  child: Text(
+                    hintText ?? '',
+                    style: TextStyle(
+                      color: AppColors.hintextColor,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

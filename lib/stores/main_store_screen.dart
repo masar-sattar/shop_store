@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_store/core/utilities/app_colors.dart';
 import 'package:shop_store/stores/presntations/screens/widgets/custom_store_container.dart';
 
 class MainStoreScreen extends StatelessWidget {
@@ -13,16 +14,17 @@ class MainStoreScreen extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 300),
+              padding: const EdgeInsets.only(left: 290),
               child: Text(
                 "store_list".tr(),
                 style: const TextStyle(
-                  fontSize: 18,
+                  fontSize: 20,
+                  color: AppColors.fontColor,
                 ),
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             GestureDetector(
                 onTap: () {

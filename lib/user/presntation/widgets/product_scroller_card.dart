@@ -88,20 +88,22 @@ class _ProductCardState extends State<ProductCard> {
             ),
             const SizedBox(height: 8),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(widget!.brandImage!, height: 24),
-                const SizedBox(width: 4),
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 30),
-                  child: Text(
-                    widget!.brandName!,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 12),
+                if (widget.brandImage != null) ...[
+                  Image.asset(widget.brandImage!, height: 24),
+                  const SizedBox(width: 4),
+                ],
+                if (widget.brandName != null)
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 30),
+                    child: Text(
+                      widget.brandName!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontSize: 12),
+                    ),
                   ),
-                ),
+                const SizedBox(width: 4),
                 const SizedBox(width: 4),
                 if (widget.oldPrice != null)
                   Row(
@@ -171,7 +173,7 @@ class _ProductCardState extends State<ProductCard> {
                               ),
                               const SizedBox(width: 6),
                               Text(
-                                "add to card".tr(),
+                                "add_to_card".tr(),
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 13,

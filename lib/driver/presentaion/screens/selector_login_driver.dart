@@ -58,8 +58,12 @@ class _SelectorLoginDriverState extends State<SelectorLoginDriver> {
               style: const TextStyle(fontSize: 25),
             ),
           ),
-          Text('please select your postion ,drivr or merchant'.tr(),
-              style: const TextStyle(fontSize: 20, color: AppColors.ligtgray)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('please_select_your_postion_,drivr_or_merchant'.tr(),
+                style: const TextStyle(
+                    fontSize: 20, color: AppColors.hintextColor)),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -109,7 +113,7 @@ class _SelectorLoginDriverState extends State<SelectorLoginDriver> {
                             child: Text(
                               roleLabel,
                               style: const TextStyle(
-                                  fontSize: 30, color: AppColors.ligtgray),
+                                  fontSize: 30, color: AppColors.hintextColor),
                             ),
                           ),
                           Image.asset(

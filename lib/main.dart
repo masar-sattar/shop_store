@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:shop_store/auth/location_register.dart';
 
 import 'package:shop_store/auth/splash_screen.dart';
 import 'package:shop_store/core/utilities/theme.dart';
@@ -32,6 +33,7 @@ class ShopStore extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       home: SplashScreen(),
+      // home: LocationRegister()
     );
   }
 }

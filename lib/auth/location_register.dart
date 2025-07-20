@@ -23,14 +23,15 @@ class LocationRegister extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  "Select Delivery Address".tr(),
-                  style: const TextStyle(fontSize: 24),
+                  "Select_Delivery_Address".tr(),
+                  style: const TextStyle(
+                      fontSize: 24, color: AppColors.labelColor),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(18.0),
                 child: Text(
-                  "Choose the location accurately to make it easier to reach you. This address will be used for future deliveries."
+                  "choose_the_location_accurately_to_make_it_easier_to_reach_you._this_address_will_be_used_for_future_deliveries."
                       .tr(),
                   style:
                       const TextStyle(color: AppColors.fontColor, fontSize: 15),
@@ -54,7 +55,7 @@ class LocationRegister extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                   ),
                   child: Text(
-                    "move to map".tr(),
+                    "move_to_map".tr(),
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,

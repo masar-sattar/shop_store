@@ -51,6 +51,7 @@ class ForgertPassword extends StatelessWidget {
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: "enter_phone".tr(),
+                      hintStyle: TextStyle(color: AppColors.hintextColor),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -85,7 +86,7 @@ class ForgertPassword extends StatelessWidget {
                     children: [
                       Text(
                         "are_you_remmember_password".tr(),
-                        style: const TextStyle(color: AppColors.ligtgray),
+                        style: const TextStyle(color: AppColors.hintextColor),
                       ),
                       const SizedBox(
                         width: 5,

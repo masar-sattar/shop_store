@@ -51,7 +51,10 @@ class CustomStoreContainer extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("مسواك ايفنتس"),
+                          Text(
+                            "مسواك ايفنتس",
+                            style: TextStyle(color: Colors.black),
+                          ),
                           SizedBox(height: 8),
                           Row(
                             children: [

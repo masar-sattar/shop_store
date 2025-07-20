@@ -33,24 +33,18 @@ class _StoreDetailsState extends State<StoreDetails> {
       "name": "انفنتى مسكارا تثبيت الحواجب",
       "price": 2000.0,
       "oldPrice": 2500.0,
-      "brandImage": "assets/images/mr.png",
-      "brandName": "mr beauty",
     },
     {
       "image": "assets/images/mascara.png",
       "name": "انفنتى مسكارا تثبيت الحواجب",
       "price": 2000.0,
       "oldPrice": 2500.0,
-      "brandImage": "assets/images/mr.png",
-      "brandName": "mr beauty",
     },
     {
       "image": "assets/images/mascara.png",
       "name": "انفنتى مسكارا تثبيت الحواجب",
       "price": 2000.0,
       "oldPrice": 2500.0,
-      "brandImage": "assets/images/mr.png",
-      "brandName": "mr beauty",
     },
   ];
 
@@ -267,8 +261,6 @@ class _StoreDetailsState extends State<StoreDetails> {
                       name: product['name'],
                       price: product['price'],
                       oldPrice: product['oldPrice'],
-                      brandImage: product['brandImage'],
-                      brandName: product['brandName'],
                     );
                   },
                 ),

@@ -12,9 +12,44 @@ class MainSearchScreen extends StatefulWidget {
 }
 
 class _MainSearchScreenState extends State<MainSearchScreen> {
+  final FocusNode _focusNode = FocusNode();
+  final TextEditingController _controller = TextEditingController();
+  bool _isFocused = false;
+
   int? selectedPrice;
   int? selectedTime;
   int selectedTabIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+
+    _focusNode.addListener(() {
+      setState(() {
+        _isFocused = _focusNode.hasFocus;
+      });
+    });
+
+    _controller.addListener(() {
+      // إعادة بناء الواجهة عند تغير النص
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _clearSearch() {
+    _controller.clear(); // مسح النص
+    _focusNode.unfocus(); // إلغاء التركيز
+    setState(() {
+      _isFocused = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,30 +58,70 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            // Container(
+            //   width: 330,
+            //   height: 50,
+            //   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+            //   decoration: BoxDecoration(
+            //     color: AppColors.sceondColor,
+            //     borderRadius: BorderRadius.circular(25),
+            //   ),
+            //   child: TextField(
+            //     cursorColor: AppColors.mainColor,
+            //     decoration: InputDecoration(
+            //       icon: const Icon(Icons.search, color: Colors.grey),
+            //       hintText: 'search'.tr(),
+            //       border: InputBorder.none,
+            //     ),
+            //     // textDirection: TextDirection.rtl,
+            //   ),
+            // ),
             Container(
               width: 290,
               height: 50,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               decoration: BoxDecoration(
-                color: const Color(0xffF5F5F5),
+                color:
+                    _isFocused ? AppColors.sceondColor : Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(25),
+                border: Border.all(
+                  color: _isFocused
+                      ? AppColors.mainColor
+                      : const Color.fromARGB(255, 206, 202, 202),
+                  width: 2,
+                ),
               ),
               child: TextField(
+                controller: _controller,
+                focusNode: _focusNode,
+                cursorColor: AppColors.mainColor,
                 decoration: InputDecoration(
                   icon: const Icon(Icons.search, color: Colors.grey),
                   hintText: 'search'.tr(),
+                  hintStyle: TextStyle(color: Colors.black),
                   border: InputBorder.none,
+                  suffixIcon: _controller.text.isNotEmpty
+                      ? GestureDetector(
+                          onTap: _clearSearch,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/exit.svg',
+                              color: Colors.black,
+                            ),
+                          ),
+                        )
+                      : null,
                 ),
-                // textDirection: TextDirection.rtl,
               ),
             ),
             CircleAvatar(
-              radius: 18,
+              radius: 20,
               backgroundColor: AppColors.containColor,
               child: IconButton(
                 icon: SvgPicture.asset(
                   'assets/images/sort_filter.svg',
-                  width: 18,
+                  width: 20,
                 ),
                 onPressed: () {
                   showModalBottomSheet(
@@ -72,6 +147,7 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 GestureDetector(
+                                  behavior: HitTestBehavior.translucent,
                                   onTap: () {
                                     Navigator.pop(context);
                                   },
@@ -214,7 +290,7 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      "items".tr(),
+                      "store".tr(),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: selectedTabIndex == 0
@@ -243,11 +319,11 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      "store".tr(),
+                      "items".tr(),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: selectedTabIndex == 1
-                            ? FontWeight.bold
+                            ? FontWeight.normal
                             : FontWeight.normal,
                       ),
                     ),

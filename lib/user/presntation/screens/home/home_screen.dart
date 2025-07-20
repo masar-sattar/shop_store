@@ -133,68 +133,71 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: SvgPicture.asset(
-              'assets/images/notfication.svg',
-              width: 40,
-              height: 40,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          actions: [
+            IconButton(
+              icon: SvgPicture.asset(
+                'assets/images/notfication.svg',
+                width: 40,
+                height: 40,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationScreen(),
+                  ),
+                );
+              },
             ),
+          ],
+          leading: Image.asset(
+            "assets/images/logo_yellow.png",
+            width: 25,
+            height: 25,
+          ),
+        ),
+        body: IndexedStack(
+          index: currentIndex,
+          children: pages,
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Transform.translate(
+          offset: const Offset(0, -10),
+          child: RawMaterialButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const NotificationScreen(),
+                  builder: (context) => const CartMainScreen(),
                 ),
               );
             },
+            fillColor: Colors.black,
+            constraints: const BoxConstraints.tightFor(width: 55, height: 70),
+            shape: const StadiumBorder(),
+            elevation: 8,
+            child: SvgPicture.asset(
+              "assets/images/navigator_images/pasketinfloatingbutton.svg",
+              width: 28,
+              height: 28,
+              color: AppColors.mainColor,
+            ),
           ),
-        ],
-        leading: Image.asset(
-          "assets/images/logo_yellow.png",
-          width: 25,
-          height: 25,
         ),
-      ),
-      body: IndexedStack(
-        index: currentIndex,
-        children: pages,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Transform.translate(
-        offset: const Offset(0, -10),
-        child: RawMaterialButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const CartMainScreen(),
-              ),
-            );
+        bottomNavigationBar: NavigatorButtonScreen(
+          currentIndex: currentIndex,
+          onTabChanged: (index) {
+            setState(() {
+              currentIndex = index;
+            });
           },
-          fillColor: Colors.black,
-          constraints: const BoxConstraints.tightFor(width: 55, height: 70),
-          shape: const StadiumBorder(),
-          elevation: 8,
-          child: SvgPicture.asset(
-            "assets/images/navigator_images/pasketinfloatingbutton.svg",
-            width: 28,
-            height: 28,
-            color: AppColors.mainColor,
-          ),
         ),
-      ),
-      bottomNavigationBar: NavigatorButtonScreen(
-        currentIndex: currentIndex,
-        onTabChanged: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
       ),
     );
   }
