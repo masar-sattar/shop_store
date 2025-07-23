@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:shop_store/auth/location_register.dart';
-
-import 'package:shop_store/auth/splash_screen.dart';
-import 'package:shop_store/cart/presentation%20layer/screens/another_contact_us.dart';
+import 'package:shop_store/features/auth/splash_screen.dart';
+import 'package:shop_store/features/cart/presentation%20layer/screens/another_contact_us.dart';
 import 'package:shop_store/core/utilities/theme.dart';
 
 Future<void> main() async {
@@ -33,8 +31,8 @@ class ShopStore extends StatelessWidget {
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
-      home: SplashScreen(),
-      // home: AnotherContactUs()
+      // home: const SplashScreen(),
+      home: AnotherContactUs(),
     );
   }
 }
